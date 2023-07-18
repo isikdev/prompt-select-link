@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Link Editor</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(function() {
+  // Get all of the links with the "editable" class
+  var links = $("a.editable");
+
+  // Add a click event listener to the button
+  $("#edit-links").on("click", function() {
+    // Loop through the links
+    links.each(function() {
+      // Display a prompt dialog asking the user for the new URL
+      var newUrl = prompt("Enter the new URL for this link:");
+
+      // If the user entered a new URL
+      if (newUrl) {
+        // Set the href attribute of the link to the new URL
+        $(this).attr("href", newUrl);
+      }
+    });
+  });
+});
+</script>
+</head>
+<body>
+
+<a href="#" class="editable" data-user="admin">Link 1</a>
+<a href="#" class="editable" data-user="user">Link 2</a>
+<a href="#" class="editable" data-user="user">Link 3</a>
+
+<button id="edit-links">Edit Links</button>
+
+</body>
+</html>
